@@ -1,0 +1,41 @@
+<div class="mh-select-element" (click)="toggle()" #trigger>
+  <div class="mh-select__view">
+    <span class="mh-select__values">
+      <span class="mh-select__placeholder" *ngIf="(!panelOpen || !search) && !triggerValue && focused ">{{optionLabel}}</span>
+      <span class="mh-select__value-text" *ngIf="triggerValue && !seachValue">{{triggerValue}}</span>
+    </span>
+
+    <svg *ngIf="!load" class="mh-select__guide" xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+    </svg>
+
+    <svg *ngIf="load" class="mh-select__guide" width='25px' height='25px' xmlns="https://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="ar-loader">
+      <rect x="0" y="0" width="100" height="100" fill="none">
+      </rect>
+      <circle cx="50" cy="50" r="40" stroke="#f2f2f3" fill="none" stroke-width="7" stroke-linecap="round">
+      </circle>
+      <circle cx="50" cy="50" r="40" stroke="#03a9f4" stroke-dasharray="150.6 100.4" fill="none" stroke-width="7" stroke-linecap="round">
+        <animate attributeName="stroke-dashoffset" dur="1.5s" repeatCount="indefinite" from="0" to="502">
+        </animate>
+        <animate attributeName="stroke-dasharray" dur="1.5" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4">
+        </animate>
+      </circle>
+    </svg>
+  </div>
+</div>
+
+<div *ngIf="panelOpen" class="mh-select__content-panel">
+  <input #search autofocus *ngIf="search && panelOpen" (click)="open()" class="mh-select__search-input" type="text" [placeholder]="triggerValue ? triggerValue : searchLabel" (input)="searchOptions($event)">
+
+  <button *ngIf="panelOpen" (click)="clearClose()" class="mh-select__close-button">
+    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0277bd"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+  </button>
+
+  <div class="mh-select__panel-wrap" [@detailExpand]="panelOpen ? 'expanded' : 'collapsed'">
+    <div #panel class="mh-select__panel" (keydown)="_handleKeydown($event)">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+<div class="mh-select__background" *ngIf="panelOpen" (click)="close()"></div>
