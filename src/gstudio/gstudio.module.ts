@@ -9,9 +9,20 @@ import { Cardsection } from './cardsection/cardsection.component';
 import { Buttonmaterialangular } from './buttonmaterialangular/buttonmaterialangular.component';
 import { Selectbancopan } from './selectbancopan/selectbancopan.component';
 
+/** Custom imports usage example
+ * Put this inside you components codePrefix:
+ * import { MatButtonModule } from "@angular/material/button";
+ * ((window || global) as any).customImports = ((window || global) as any).customImports || [];
+ * ((window || global) as any).customImports.push(MatButtonModule);
+ * */
+
 @NgModule({
-    imports: [ CommonModule ],
+    imports: [
+        ...(((window || global) as any).customImports ? ((window || global) as any).customImports : []),
+        CommonModule
+    ],
     declarations: [
+        ...(((window || global) as any).customDeclarations ? ((window || global) as any).customDeclarations : []),
         Page,
         Dialogmaterialangular,
         Dialogdata,
@@ -20,12 +31,13 @@ import { Selectbancopan } from './selectbancopan/selectbancopan.component';
         Selectbancopan
     ],
     exports: [
+        ...(((window || global) as any).customExports ? ((window || global) as any).customExports : []),
         Page,
         Dialogmaterialangular,
         Dialogdata,
         Cardsection,
         Buttonmaterialangular,
-        Selectbancopan
+        Selectbancopan,
     ]
 })
 export class gstudioModule { }

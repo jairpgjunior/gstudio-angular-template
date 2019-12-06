@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CustomMaterialModule } from "./material.module";
 import { AppComponent } from "./app.component";
 import { ExamplePageComponent } from "./ExamplePage/example-page.component";
-import { GstudioModule } from "./gstudio/gstudio.module";
+import { GstudioModule } from "../gstudio/gstudio.module";
 import { DialogmaterialangularWrapper } from "./ExamplePage/DialogWrapper/dialog-wrapper.component";
 
 @NgModule({
