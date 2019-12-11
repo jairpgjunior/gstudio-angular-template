@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 // Edit 2 - Adicionadas dependencias para chamar o Dialog
 import { MatDialog } from "@angular/material/dialog";
-import { DialogmaterialangularWrapper } from "../DialogWrapper/dialog-wrapper.component";
+import { DialogmaterialangularWrapper } from "./DialogWrapper/dialog-wrapper.component";
 
 @Component({
   selector: "example-page",

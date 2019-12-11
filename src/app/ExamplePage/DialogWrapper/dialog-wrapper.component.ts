@@ -13,10 +13,7 @@ import { MatDialogRef } from "@angular/material/dialog";
       (selectedOptionChange)="initiallySelectedOption = $event"
     ></dialogdata>
 
-    <buttonmaterialangular
-      [label]="'OK'"
-      (onClick)="closeDialog()"
-    ></buttonmaterialangular>
+   
   `
 })
 export class DialogmaterialangularWrapper {

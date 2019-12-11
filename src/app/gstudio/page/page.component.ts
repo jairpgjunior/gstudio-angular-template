@@ -2,11 +2,6 @@
 
 import { Component, Input, Output, EventEmitter  } from '@angular/core';
 
-// Edit 1 - Adicionadas dependencias para chamar o Dialog
-import { MatDialog } from "@angular/material/dialog";
-import { DialogmaterialangularWrapper } from "../../DialogWrapper/dialog-wrapper.component";
-
-
 
 @Component({
     selector: 'page',
@@ -14,11 +9,6 @@ import { DialogmaterialangularWrapper } from "../../DialogWrapper/dialog-wrapper
     styleUrls: ['./page.component.css']
 })
 export class Page {
-    // Edit 2
-    openDialog(): void {
-        this.dialog.open(DialogmaterialangularWrapper, {});
-      }
-
     @Output() tapSimulateNow: EventEmitter<any> = new EventEmitter();
     
     handle_JGV2ZW50LnN0b3BQcm9wYWdhdGlvbigpOwpvcGVuRGlhbG9nKCk($event) {
@@ -29,8 +19,4 @@ export class Page {
     handle_dGhpcy50YXBTaW11bGF0ZU5vdy5uZXh0KCRldmVudCk($event) {
         this.tapSimulateNow.next($event)
     }
-    constructor(
-        // Edit 3
-        public dialog: MatDialog
-      ) {}
 }
