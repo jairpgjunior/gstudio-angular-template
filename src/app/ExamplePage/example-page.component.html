@@ -1,8 +1,33 @@
 <div class="page">
   <h1>gStudio poc</h1>
 
-  <buttonmaterialangular
-    [label]="'Open dialog'"
-    (click)="openDialog()"
-  ></buttonmaterialangular>
+  <h4>Example using the gStudio Select:</h4>
+  <blockquote>
+    <selectmaterialangular
+      [(value)]="value"
+      [options]="['Pizza', 'Burger', 'Sushi']"
+    ></selectmaterialangular>
+
+    <span>Selected: {{ value }}</span>
+  </blockquote>
+
+  <hr />
+
+  <h4>Example using gStudio Button:</h4>
+  <blockquote style="display: flex; justify-content: space-between;">
+    <buttonmaterialangular
+      [label]="'Force set selected to Pasta'"
+      (onClick)="value = 'Pasta'"
+    ></buttonmaterialangular>
+    <buttonmaterialangular
+      [label]="'Open test dialog'"
+      (onClick)="openDialog()"
+    ></buttonmaterialangular>
+  </blockquote>
+
+  <hr />
+  <h4>Complete page example:</h4>
+  <blockquote>
+    <page (tapSimulateNow)="openDialog()"></page>
+  </blockquote>
 </div>

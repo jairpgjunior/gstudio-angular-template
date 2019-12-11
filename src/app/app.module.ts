@@ -4,21 +4,21 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { CustomMaterialModule } from "./material.module";
 import { AppComponent } from "./app.component";
+import { gstudioModule } from "./gstudio/gstudio.module";
 import { ExamplePageComponent } from "./ExamplePage/example-page.component";
-import { GstudioModule } from "../gstudio/gstudio.module";
 import { DialogmaterialangularWrapper } from "./ExamplePage/DialogWrapper/dialog-wrapper.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogmaterialangularWrapper,
-    ExamplePageComponent
+    ExamplePageComponent,
+    DialogmaterialangularWrapper
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    GstudioModule
+    gstudioModule
   ],
   providers: [],
   bootstrap: [AppComponent, DialogmaterialangularWrapper]
